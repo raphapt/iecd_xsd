@@ -1,0 +1,93 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="protocol">
+        <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element name="login">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="password" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="register">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="password" type="xs:string" />
+                                    <xs:attribute name="birth" type="xs:string" />
+                                    <xs:attribute name="nationality" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="photo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ranking">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="changephoto">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="path" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="changepassword">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="password" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="deleteuser">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
