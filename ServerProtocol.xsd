@@ -1,61 +1,94 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="gameData">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="players">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="player" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="photo"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="nickname" use="required"/>
-                  <xs:attribute type="xs:string" name="password" use="required"/>
-                  <xs:attribute type="xs:int" name="wins" use="required"/>
-                  <xs:attribute type="xs:int" name="losses" use="required"/>
-                  <xs:attribute type="xs:long" name="time" use="required"/>
-                  <xs:attribute type="xs:string" name="birth" use="required"/>
-                  <xs:attribute type="xs:string" name="nationality" use="required"/>
-                  <xs:attribute type="xs:string" name="color" use="required"/>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="activeGames">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="game" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="pieces">
-                      <xs:complexType>
+    <xs:element name="protocol">
+        <xs:complexType>
+            <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element name="login">
+                    <xs:complexType>
                         <xs:sequence>
-                          <xs:element name="piece" maxOccurs="64" minOccurs="0">
-                            <xs:complexType>
-                              <xs:simpleContent>
-                                <xs:extension base="xs:string">
-                                  <xs:attribute type="xs:string" name="player" use="required"/>
-                                  <xs:attribute type="xs:int" name="column" use="required"/>
-                                  <xs:attribute type="xs:int" name="row" use="required"/>
-                                </xs:extension>
-                              </xs:simpleContent>
-                            </xs:complexType>
-                          </xs:element>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="password" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
                         </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="playerA" use="required"/>
-                  <xs:attribute type="xs:string" name="playerB" use="required"/>
-                  <xs:attribute type="xs:string" name="next" use="required"/>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="register">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="password" type="xs:string" />
+                                    <xs:attribute name="birth" type="xs:string" />
+                                    <xs:attribute name="nationality" type="xs:string" />
+                                    <xs:attribute name="color" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="photo">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="ranking">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="changephoto">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="path" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="changepassword">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="password" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="deleteuser">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>
