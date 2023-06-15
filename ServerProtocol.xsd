@@ -44,7 +44,7 @@
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element name="photo">
+                <xs:element name="profile">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="request">
