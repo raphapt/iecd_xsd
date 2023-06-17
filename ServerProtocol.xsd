@@ -8,6 +8,7 @@
                             <xs:element name="request">
                                 <xs:complexType>
                                     <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="opponent" type="xs:string" />
                                 </xs:complexType>
                             </xs:element>
                             <xs:element name="reply" type="xs:string" />
