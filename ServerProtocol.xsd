@@ -2,13 +2,25 @@
     <xs:element name="protocol">
         <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="1">
-                <!-- add ready -->
                 <xs:element name="ready">
                     <xs:complexType>
                         <xs:sequence>
                             <xs:element name="request">
                                 <xs:complexType>
                                     <xs:attribute name="nickname" type="xs:string" />
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="changenickname">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="request">
+                                <xs:complexType>
+                                    <xs:attribute name="nickname" type="xs:string" />
+                                    <xs:attribute name="newnickname" type="xs:string" />
                                 </xs:complexType>
                             </xs:element>
                             <xs:element name="reply" type="xs:string" />
