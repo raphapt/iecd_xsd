@@ -60,7 +60,7 @@
                                 <xs:complexType>
                                     <xs:attribute name="nickname" type="xs:string" />
                                     <xs:attribute name="password" type="xs:string" />
-                                    <xs:attribute name="birth" type="xs:string" />
+                                    <xs:attribute name="birth" type="xs:date" />
                                     <xs:attribute name="nationality" type="xs:string" />
                                     <xs:attribute name="color" type="xs:string" />
                                 </xs:complexType>
@@ -122,6 +122,13 @@
                                     <xs:attribute name="nickname" type="xs:string" />
                                 </xs:complexType>
                             </xs:element>
+                            <xs:element name="reply" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="allusers">
+                    <xs:complexType>
+                        <xs:sequence>
                             <xs:element name="reply" type="xs:string" />
                         </xs:sequence>
                     </xs:complexType>
